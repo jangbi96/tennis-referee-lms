@@ -525,7 +525,7 @@ footer{
    
     .mainSection{
         background: #fff;
-        flex-grow: 1;
+        width: calc(100vw - 264px);
         margin: 24px;
         border-radius: 8px;
         box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06);
