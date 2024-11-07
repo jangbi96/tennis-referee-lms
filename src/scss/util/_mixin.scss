@@ -1,0 +1,72 @@
+@function flexFn($param) {
+    @if ($param ==center) {
+        @return center;
+    }
+
+    @if ($param ==start) {
+        @return flex-start;
+    }
+
+    @if ($param ==end) {
+        @return flex-end;
+    }
+
+    @if ($param ==sb) {
+        @return space-between;
+    }
+
+    @if ($param ==sa) {
+        @return space-around;
+    }
+}
+
+@mixin flex($jc: center, $ai: center) {
+    display: flex;
+    justify-content: flexFn($jc);
+    align-items: flexFn($ai);
+}
+
+@mixin pos-center($position: absolute) {
+    position: $position;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin pos-center-y {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin pos-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@mixin font-style($size: 16, $weight: 400) {
+    font-size: $size + px;
+    font-weight: $weight;
+    letter-spacing: -$size * 0.04 + px;
+}
+
+@mixin media($aa) {
+    @if $aa =="T" {
+        @media screen and (max-width: 1200px) {
+            @content;
+        }
+    }
+
+    @if $aa =="M" {
+        @media screen and (max-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $aa =="XS" {
+        @media screen and (max-width: 430px) {
+            @content;
+        }
+    }
+}

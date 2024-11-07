@@ -1,0 +1,54 @@
+<%- include('../includes/header',{ path :'competition-allocation-management'}) %>
+<!-- 대회등록관리 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cam">
+        <h2 class="topTit">대회등록관리</h2>
+        <div class="table-top flex f-sb">
+            <span class="count">전체<em>(255)</em></span>
+            <div class="right-search flex mb-13">
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
+                <button class="btn btn-gray mr-24">검색</button>
+                <button class="btn btn-blue mr-4">안녕</button>
+                <button class="btn btn-green">엑셀 등록</button>
+            </div>
+        </div>
+        <table class="table table-line">
+          
+            <thead>
+                    <tr>
+                        <th class="text-left">대회명</th>
+                        <th>대회종류</th>
+                        <th class="text-left">신청기간</th>
+                        <th class="text-left">대회기간</th>
+                        <th class="text-left">개최지역</th>
+                        <th class="text-left">역할</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < 10; i++){ %>
+                <tr>
+                    <td>
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td class="text-center">국내대회</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td>서울시 송파구</td>
+                    <td class="">
+                        <div class="flex">
+                            <span class="role active">레프리</span>
+                            <span class="role">체어</span>
+                            <span class="role">오프코트</span>
+                            <span class="role">라인</span>
+                        </div>
+                    </td>
+                </tr>
+                <% } %>
+
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+</div>
+<%- include('../includes/footer',{ path :'competition-allocation-management'}) %>

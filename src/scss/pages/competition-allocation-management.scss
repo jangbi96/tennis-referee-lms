@@ -1,0 +1,37 @@
+@use '../util/mixin' as *;
+
+.cam{
+    .count{
+            @include font-style(16);
+        em{
+            @include font-style(14);
+            color: #888;
+        }
+    }
+    .inputBox{
+        width: 320px;
+
+    }
+    .table{
+        td{
+            &:first-child{
+                width: 35%;
+            }
+            &:nth-child(2){
+                width: 5%;
+            }
+            &:nth-child(3){
+                width: 15%;
+            }
+            &:nth-child(4){
+                width: 15%;
+            }
+            &:nth-child(5){
+                width: 15%;
+            }
+            &:nth-child(6){
+                width: 15%;
+            }
+        }
+    }
+}

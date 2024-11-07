@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guide</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <!-- <link rel="stylesheet" href="/assets/iconfont/iconfont.css" /> -->
+        <link rel="stylesheet" href="/css/guide.css" />
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css"
+        />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    </head>
+    <style>
+        .guide {
+            padding: 10px;
+
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .code {
+            background: #eee;
+        }
+    </style>
+    <body>
+        <div class="guide">
+            
+            
+            <h1 class="text-center mb-40">Guide</h1>
+            <pre>
+                <code class="language-html">
+                <xmp>
+                    1. 활성화 클래스 : active
+                    2. 라이브러리 관련 js 제외 나머지 스크립트는 component.js 가 먼저 로드된 후 작성되어야 함.
+                    3. html 파일당 동일한 파일명의 css, js 를 사용한다
+                </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">레이아웃</h2>
+            <pre>
+                <code class="language-html">
+                    &lt;%- include('../includes/header', { path :'competition-application' }) %&gt;
+                    &lt;!-- banner 파라미터는 layout.scss 참고  --&gt;
+                    &lt;%- include('../includes/banner', { title :'대회 신청',  banner: 'application', tabs: [{ label :'국내대회', active : true }, { label:'국제대회' },{ label:'국외대회' }] }) %&gt;
+            
+                    &lt;!-- container.b : 파란배경 container.w : 흰색배경  --&gt;
+                    &lt;div class="container"&gt;
+                    &lt;!-- 배너있는 페이지일 경우 .inner.wConBox  --&gt;
+                        &lt;div class="inner"&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;%- include('../includes/footer', { path :'competition-application'}) %&gt;
+                </code>
+            </pre>
+            <h2 class="mb-10">반응형</h2>
+            <pre>
+                <code class="language-html">
+                <xmp>
+                    @include media('T') {
+                      <!-- 1200 태블릿 (모바일 시작) -->
+                    }
+                    @include media('M') {
+                      <!-- 768 -->
+                    }
+                    @include media('XS') {
+                      <!-- 430 -->
+                    }
+                </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">버튼</h2>
+            <button class="btn btn-blue">안녕</button>
+            <button class="btn btn-blue-border">안녕</button>
+            <button class="btn btn-gray">안녕</button>
+            <button class="btn btn-green-border">배정내용 엑셀 다운로드</button>
+            <button class="btn btn-green">엑셀등록</button>
+            <button class="btn btn-red-border">신청 취소</button>
+            <button class="btn btn-red-border" disabled>취소</button>
+            <button class="btn-rd btn-blue">안녕</button>
+            <button class="btn-rd btn-blue-border">안녕</button>
+            <button class="btn-rd" disabled>취소</button>
+            <pre>
+                <code class="language-html">
+                <xmp>
+                    <button class="btn btn-blue">안녕</button>
+                    <button class="btn btn-blue-border">안녕</button>
+                    <button class="btn btn-gray">안녕</button>
+                    <button class="btn btn-green-border">배정내용 엑셀 다운로드</button>
+                    <button class="btn btn-green">엑셀등록</button>
+                    <button class="btn btn-red-border">신청 취소</button>
+                    <button class="btn btn-red-border" disabled>취소</button>
+                    <button class="btn-rd btn-blue">안녕</button>
+                    <button class="btn-rd btn-blue-border">안녕</button>
+                    <button class="btn-rd" disabled>취소</button>
+                </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">인풋</h2>
+            <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+            <input name="input" class="inputBox inputBox-default" type="text" readonly value="readonly" />
+            <input name="input" class="inputBox inputBox-bottom id" type="text" />
+            <input name="input" class="inputBox inputBox-bottom pw" type="text" />
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+                        <input name="input" class="inputBox inputBox-default" type="text" readonly value="readonly" />
+                        <input name="input" class="inputBox inputBox-bottom id" type="text" />
+                        <input name="input" class="inputBox inputBox-bottom pw" type="text" />
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">텍스트박스</h2>
+            <div class="textBox">
+                <div class="textBox-wrap">
+                    <textarea name="textarea" placeholder="내용을 입력하세요." maxlength="50">adsfasd</textarea>
+                </div>
+                <div class="textBox-limit mt-8"><span></span>&nbsp;/ 50</div>
+            </div>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <div class="textBox">
+                            <div class="textBox-wrap">
+                                <textarea name="textarea" placeholder="내용을 입력하세요." maxlength="50">adsfasd</textarea>
+                            </div>
+                            <div class="textBox-limit mt-8"><span></span>&nbsp;/ 50</div>
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">서치박스</h2>
+            <div class="searchBox">
+                <input type="text" placeholder="찾고 싶은 내용을 입력하세요." />
+                <button class="searchBox-btn"></button>
+                <button class="searchBox-remove">삭제</button>
+            </div>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <div class="searchBox">
+                            <input type="text" placeholder="찾고 싶은 내용을 입력하세요." />
+                            <button class="searchBox-btn"></button>
+                            <button class="searchBox-remove">삭제</button>
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">체크박스/라디오</h2>
+            <div class="checkBox checkBox-sq">
+                <input type="checkbox" name="check1" id="check1" />
+                <label for="check1">라벨</label>
+            </div>
+            <div class="checkBox checkBox-sq">
+                <input type="checkbox" name="check2" id="check2" disabled />
+                <label for="check2">라벨</label>
+            </div>
+            <div class="checkBox checkBox-sq">
+                <input type="checkbox" name="check3" id="check3" checked disabled />
+                <label for="check3">라벨</label>
+            </div>
+            <div class="checkBox checkBox-rd">
+                <input type="checkbox" name="check4" id="check4" />
+                <label for="check4"></label>
+            </div>
+            <div class="radioBox">
+                <input type="radio" name="radio" id="radio1" checked />
+                <label for="radio1">라디오1</label>
+            </div>
+            <div class="radioBox">
+                <input type="radio" name="radio" id="radio2" />
+                <label for="radio2">라디오2</label>
+            </div>
+            <div class="radioBox">
+                <input type="radio" name="radio" id="radio3" />
+                <label for="radio3">라디오3</label>
+            </div>
+            <div class="radioBox">
+                <input type="radio" name="radioReadonly" id="radioReadonly" checked disabled />
+                <label for="radioReadonly">readonly</label>
+            </div>
+            <div class="radioBox">
+                <input type="radio" name="radioDisabled" id="radioDisabled" disabled />
+                <label for="radioDisabled">disabled</label>
+            </div>
+
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <div class="checkBox checkBox-sq">
+                            <input type="checkbox" name="check1" id="check1" />
+                            <label for="check1">라벨</label>
+                        </div>
+                        <div class="checkBox checkBox-sq">
+                            <input type="checkbox" name="check2" id="check2" disabled />
+                            <label for="check2">라벨</label>
+                        </div>
+                        <div class="checkBox checkBox-sq">
+                            <input type="checkbox" name="check3" id="check3" checked disabled />
+                            <label for="check3">라벨</label>
+                        </div>
+                        <div class="checkBox checkBox-rd">
+                            <input type="checkbox" name="check4" id="check4" />
+                            <label for="check4"></label>
+                        </div>
+                        <div class="radioBox">
+                            <input type="radio" name="radio" id="radio1" checked />
+                            <label for="radio1">라디오1</label>
+                        </div>
+                        <div class="radioBox">
+                            <input type="radio" name="radio" id="radio2" />
+                            <label for="radio2">라디오2</label>
+                        </div>
+                        <div class="radioBox">
+                            <input type="radio" name="radio" id="radio3" />
+                            <label for="radio3">라디오3</label>
+                        </div>
+                        <div class="radioBox">
+                            <input type="radio" name="radioReadonly" id="radioReadonly" checked disabled />
+                            <label for="radioReadonly">readonly</label>
+                        </div>
+                        <div class="radioBox">
+                            <input type="radio" name="radioDisabled" id="radioDisabled" disabled />
+                            <label for="radioDisabled">disabled</label>
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">상태 뱃지</h2>
+            <span class="st-badge confirm">승인</span>
+            <span class="st-badge pending">승인대기</span>
+            <span class="st-badge return">반려</span>
+
+            <span class="rec-badge frst">1급</span>
+            <span class="rec-badge wh">화이트</span>
+            <span class="rec-badge ing">접수중</span>
+            <span class="rec-badge end">접수종료</span>
+
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                    <span class="st-badge confirm">승인</span>
+                    <span class="st-badge pending">승인대기</span>
+                    <span class="st-badge return">반려</span>
+        
+                    <span class="rec-badge frst">1급</span>
+                    <span class="rec-badge wh">화이트</span>
+                    <span class="rec-badge ing">접수중</span>
+                    <span class="rec-badge end">접수종료</span>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">탭</h2>
+
+            <ul class="tabs-test tabs tabs-rd-sm" data-tag="tabContents">
+                <li class="tab active" data-idx="0">국내대회</li>
+                <li class="tab" data-idx="1">국제대회</li>
+                <li class="tab" data-idx="2">국외대회</li>
+            </ul>
+            <div class="tab-contents" data-tag="tabContents">
+                <div class="content-item" data-idx="0">첫번째 탭 컨텐츠입니다.</div>
+                <div class="content-item" data-idx="1">두번째 탭 컨텐츠입니다.</div>
+                <div class="content-item" data-idx="2">세번째 탭 컨텐츠입니다.</div>
+            </div>
+            <ul class="tabs tabs-rd" data-tag="roundTab" id="roundTab">
+                <li class="tab active" data-idx="0"><a href="">국내대회</a></li>
+                <li class="tab" data-idx="1"><a href="">국제대회</a></li>
+                <li class="tab" data-idx="2"><a href="">국외대회</a></li>
+            </ul>
+           
+            <ul class="tabs tabs-sq">
+                <li class="tab active" data-idx="0">국내대회</li>
+                <li class="tab" data-idx="1">국제대회</li>
+                <li class="tab" data-idx="2">국외대회</li>
+            </ul>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <!-- 탭과 컨텐츠는 동일한 data-tag, data-idx 부여 -->
+                        <ul class="tabs-test tabs tabs-rd tabs-rd-sm" data-tag="tabContents">
+                            <li class="tab active" data-idx="0">국내대회</li>
+                            <li class="tab" data-idx="1">국제대회</li>
+                            <li class="tab" data-idx="2">국외대회</li>
+                        </ul>
+                        <div class="tab-contents" data-tag="tabContents">
+                            <div class="content-item" data-idx="0">첫번째 탭 컨텐츠입니다.</div>
+                            <div class="content-item" data-idx="1">두번째 탭 컨텐츠입니다.</div>
+                            <div class="content-item" data-idx="2">세번째 탭 컨텐츠입니다.</div>
+                        </div>
+                        <ul class="tabs tabs-rd" data-tag="roundTab">
+                            <li class="tab active" data-idx="0">국내대회</li>
+                            <li class="tab" data-idx="1">국제대회</li>
+                            <li class="tab" data-idx="2">국외대회</li>
+                        </ul>
+                        <div class="tab-contents" data-tag="roundTab">
+                            <div class="content-item" data-idx="0">a</div>
+                            <div class="content-item" data-idx="1">b</div>
+                            <div class="content-item" data-idx="2">c</div>
+                        </div>
+                        <ul class="tabs tabs-sq">
+                            <li class="tab active" data-idx="0">국내대회</li>
+                            <li class="tab" data-idx="1">국제대회</li>
+                            <li class="tab" data-idx="2">국외대회</li>
+                        </ul>
+                        
+                        <!-- 탭 인스턴트 생성 -->
+                        new TabContent(document.querySelector('.tabs-test'))
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">셀렉트박스</h2>
+            
+            <div class="selectBox">
+                <select name="select">
+                    <option value="" selected disabled readonly>선택하세요.</option>
+                    <option value="1">일</option>
+                    <option value="2">이</option>
+                    <option value="3">삼</option>
+                </select>
+                <div class="customSelect">
+                    <div class="customSelect-view"></div>
+                    <ul class="customSelect-options"></ul>
+                </div>
+            </div>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        new Dropdown(document.querySelector('.selectBox'));
+                        new Dropdown($('.selectBox'));
+
+                        인스턴스 생성후 값 할당시 value값을 넘겨준다.
+                        setValue('2')
+                        <div class="selectBox">
+                            <select name="select">
+                                <option value="" selected disabled readonly>선택하세요.</option>
+                                <option value="1">일</option>
+                                <option value="2">이</option>
+                                <option value="3">삼</option>
+                            </select>
+                            <div class="customSelect">
+                                <div class="customSelect-view"></div>
+                                <ul class="customSelect-options mt-5"></ul>
+                            </div>
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">etc</h2>
+            <button class="more-btn">더보기<i></i></button>
+            <button class="more-btn" disabled>더보기<i></i></button>
+            <div class="btn-group flex">
+                <button class="btn-prev"></button>
+                <button class="btn-next"></button>
+            </div>
+         
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <button class="more-btn">더보기<i></i></button>
+                        <button class="more-btn" disabled>더보기<i></i></button>
+
+                        <div class="btn-group flex">
+                            <button class="btn-prev"></button>
+                            <button class="btn-next"></button>
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+            <h2 class="mb-10">모달</h2>
+            <button class="btn btn-blue" onclick="openModal('guideModal')">모달오픈</button>
+            <button class="btn btn-blue" onclick="openModal('alert')">alert오픈</button>
+            <div class="alert" id="alert">
+                <div class="aContents" onclick="e.stopPropagation()">
+                    <div class="alert-body">신청 취소를 하시면 대회신청이 취소됩니다.<br />취소됩니다.</div>
+                    <div class="alert-foot flex">
+                        <button class="btn btn-gray" onclick="closeModal('alert')">아니요</button>
+                        <button class="btn btn-blue" onclick="closeModal('alert')">확인</button>
+                    </div>
+                </div>
+            </div>
+            <div class="common-modal" id="guideModal">
+                <div class="mContents" onclick="e.stopPropagation()">
+                    <div class="mContents-head f-sb">
+                        <span class="tit">대회 정보</span>
+                        <button class="closeBtn" onclick="closeModal('guideModal')"></button>
+                    </div>
+                    <div class="mContents-body">컨텐츠</div>
+                    <div class="mContents-foot f-sb">
+                        <button class="btn btn-gray">닫기</button>
+                        <button class="btn btn-blue">변경 완료</button>
+                    </div>
+                </div>
+            </div>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <button class="btn btn-blue" onclick="openModal('guideModal')">모달오픈</button>
+                        <button class="btn btn-blue" onclick="openModal('alert')">alert오픈</button>
+                        
+                        <!-- alert, confirm -->
+                        <div class="alert" id="alert">
+                            <div class="aContents" onclick="e.stopPropagation()">
+                                <div class="alert-body">신청 취소를 하시면 대회신청이 취소됩니다.<br />취소됩니다.</div>
+                                <div class="alert-foot flex">
+                                    <button class="btn btn-gray" onclick="closeModal('alert')">아니요</button>
+                                    <button class="btn btn-blue" onclick="closeModal('alert')">확인</button>
+                                </div>
+                            </div>
+                        </div>
+                            <!-- modal -->
+                            <div class="common-modal" id="guideModal">
+                                <div class="mContents" onclick="e.stopPropagation()">
+                                    <div class="mContents-head f-sb">
+                                        <span class="tit">대회 정보</span>
+                                        <button class="closeBtn" onclick="closeModal('guideModal')"></button>
+                                    </div>
+                                    <div class="mContents-body">컨텐츠</div>
+                                    <div class="mContents-foot f-sb">
+                                        <button class="btn btn-gray">닫기</button>
+                                        <button class="btn btn-blue">변경 완료</button>
+                                    </div>
+                                </div>
+                            </div>
+                    </xmp>
+                </code>
+            </pre>
+
+            <h2 class="mb-10">데이트피커</h2>
+            <div class="datepicker" id="datepicker">
+                <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+            </div>
+            <button id="aa">날짜</button>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        new Datepicker(document.querySelector('.datepicker'));
+                        new Datepicker($('.datepicker'));
+
+                        인스턴스 생성후 값 할당시
+                        날짜값은 Date 객체 or 포맷상관없이 유효한 날짜 문자열 가능 ex) 2024.01.01 / 2024-04.16
+                        setValue('20200105')
+                        
+                        <div class="datepicker" id="datepicker">
+                            <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                        </div>
+                    </xmp>
+                </code>
+            </pre>
+
+            <h2 class="mb-10">테이블</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>목록1</th>
+                        <th>목록2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>내용1</td>
+                        <td>내용2</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table horizon">
+                <colgroup>
+                    <col style="width: 140px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>목록1</th>
+                        <td>내용1</td>
+                    </tr>
+                    <tr>
+                        <th>목록2</th>
+                        <td>내용2</td>
+                    </tr>
+                </tbody>
+            </table>
+            <pre>
+                <code class="language-html">
+                    <xmp>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>목록1</th>
+                                    <th>목록2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>내용1</td>
+                                    <td>내용2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <table class="table horizon">
+                            <colgroup>
+                                <col style="width: 140px;">
+                                <col style="width: auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>목록1</th>
+                                    <td>내용1</td>
+                                </tr>
+                                <tr>
+                                    <th>목록2</th>
+                                    <td>내용2</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </xmp>
+                </code>
+            </pre>
+        </div>
+    </body>
+    <script src="../js/component.js"></script>
+    <script>
+        hljs.highlightAll();
+        hljs.configure({ ignoreUnescapedHTML: true });
+
+        // const dropdown = new Dropdown(document.querySelector(".selectBox"));
+        const datepicker = new Datepicker(document.querySelector("#datepicker"));
+        
+        const a = new TabContent(document.querySelector(".tabs-test"));
+
+        new Dropdown(document.querySelector(".selectBox")).setValue('2')
+    </script>
+</html>
