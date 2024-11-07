@@ -1,0 +1,62 @@
+<%- include('../includes/header',{ path :'board-notice-detail'}) %>
+<!-- 공지상세 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection board">
+        <h2 class="topTit">공지사항</h2>
+        <table class="table horizon">
+            <colgroup>
+                <col style="width: 140px;">
+                <col style="width: auto;">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>작성자</th>
+                    <td>홍길동</td>
+                </tr>
+                <tr>
+                    <th>작성일</th>
+                    <td>2024.10.17</td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td>
+                        <span class="rec-badge ing mr-12">중요</span>신규 스카이패스 할인 및 엑설런드 보딩패스 제휴 (코엑스 아쿠아리움)
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>
+                        <div class="board-contents">
+                            대한항공은 한국예탁결제원 주관의 ‘2024 미수령주식 찾아주기 집중 캠페인’에 동참하여<br/><br/>
+
+                            대한항공 주주님들께 아래와 같이 안내 드립니다.<br/><br/>
+
+                            미수령주식 찾아주기 캠페인이란 ? <br/>
+                            한국예탁결제원이 보관하고 있는 주주들의 주식 등 금융자산을 적극적으로 찾아드리는 공익적 사업입니다.<br/>
+                            기간 : 2024년 10월 2일(수) ~ 10월 31일(목)<br/>
+                            대상 : 대한항공 실물주권을 본인명의로 보유한 주주 (증권회사 계좌에 예탁한 경우, 해당 없음)<br/>
+                            대상 여부 확인 : 한국예탁결제원 증권대행 바로가기 새창 열기<br/>
+                            한국예탁결제원 증권대행 홈페이지 접속 > 주주서비스 > 조회업무 > 주식찾기를 통해 확인하실 수 있습니다.<br/>
+                            자세한 사항은 1577-6600으로 문의하시거나, 상단의 바로가기 링크를 접속하시어 확인하시기 바랍니다.
+                        </div>
+                        <div class="file-box">
+                            <div class="left">첨부파일</div>
+                            <div class="right">
+                                <a href="#">첨부파일1.pdf</a>
+                                <a href="#">첨부파일1.pdf</a>
+                                <a href="#">첨부파일1.pdf</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="f-ct mt-24">
+            <button class="btn btn-red-border mr-8">글 삭제</button>
+            <button class="btn btn-gray mr-8">수정</button>
+            <button class="btn btn-blue">목록으로</button>
+        </div>
+    </section>
+</div>
+<%- include('../includes/footer',{ path :'board-notice-detail'}) %>

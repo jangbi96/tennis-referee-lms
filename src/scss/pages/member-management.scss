@@ -1,0 +1,192 @@
+@use '../util/mixin' as *;
+
+.mm{
+    .count{
+            @include font-style(16);
+        em{
+            @include font-style(14);
+            color: #888;
+        }
+    }
+    .inputBox{
+        width: 320px;
+
+    }
+    .table{
+        text-align: left;
+        &-top {
+            margin-bottom: 16px;
+            @include flex("sb", end);
+
+            .flex {
+                justify-content: flex-end;
+                gap: 24px;
+            }
+        }
+        td{
+            padding-left: 24px;
+            &:first-child{
+                width: 15%;
+            }
+            &:nth-child(2){
+                width: 8.8%;
+            }
+            &:nth-child(3){
+                width: 8.8%;
+            }
+            &:nth-child(4){
+                width: 10%;
+            }
+            &:nth-child(5){
+                width: auto;
+            }
+            &:nth-child(6){
+                width: 10%;
+            }
+            &:nth-child(7){
+                padding: 8px 24px;
+                width: 10%;
+
+                .btn {
+                    height: 32px;
+                    padding: 0 20px;
+                    white-space: nowrap;
+                }
+            }
+
+            &:not(:first-child) {
+                font-weight: 300;
+            }
+
+            i {
+                display: inline-block;
+                width: 14px;
+                height: 14px;
+
+                &.disc {
+                    background: url('../../assets/images/ic-disc.png') no-repeat center;
+                }
+            }
+        }
+    }
+}
+
+.detailModal {
+    .mContents-body {
+        max-height: 85vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background: #9c9c9c;
+
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        .input {
+            &-download {
+                &-wrap {
+                    @include flex(start, center);
+                    margin-top: 12px;
+
+                    .inputBox {
+                        max-width: 334px;
+                    }
+
+                    .btn {
+                        padding: 0 20px;
+                    }
+                }
+            }
+        }
+    }
+    .profile {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        margin-right: 24px;
+        background: pink;
+        overflow: hidden;
+        @include flex();
+        img{
+            width: 100%;
+        }
+
+        &-wrap {
+            margin-bottom: 24px;
+            @include flex(start,start);
+            
+            .usrInfo{
+                padding-top: 19px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                
+                &-wide{
+                    border-bottom: 1px solid #e6e8eb;
+                    @include flex(sb, center);
+                    padding-bottom: 12px;
+                    .usrNm{
+                        @include font-style(24, bold);
+                        margin-right: 12px;
+                    }
+                    a{
+                        @include font-style(14, normal);
+                        &:first-child{
+                            margin-right: 24px;
+                        }
+                    }
+                }
+                &-detail{
+                    padding-top: 12px;
+                }
+                .lic{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-bottom: 12px;
+                    &-item{
+                        margin-right: 16px;
+                        span:not(.rec-badge){
+                            @include font-style(14, normal);
+                        }
+                    }
+    
+                }
+                .ref-type{
+                    @include flex(start,center);
+                    li{
+                        @include flex(center, start);
+                        &::after{
+                            content:'';
+                            display: inline-block;
+                            width: 1px;
+                            height: 14px;
+                            margin: 1px 12px;
+                            background-color: #e1e5eb;
+                            position: relative;
+                            top: 4px;
+                        }
+
+                        &:last-child {
+                            &::after {
+                                display: none;
+                            }
+                        }
+
+                        label {
+                            @include flex();
+                            @include font-style(14, normal);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

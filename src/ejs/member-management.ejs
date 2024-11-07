@@ -1,0 +1,201 @@
+<%- include('../includes/header',{ path :'member-management'}) %>
+<!-- 회원관리 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection mm">
+        <h2 class="topTit">회원관리</h2>
+        <div class="table-top flex">
+            <span class="count">전체 <em>(255)</em></span>
+            <div>
+                <div class="right-search mb-24">
+                    <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="제목을 입력하세요." />
+                    <button class="btn btn-gray">검색</button>
+                </div>
+                <div class="flex">
+                    <div class="checkBox checkBox-sq">
+                        <input type="checkbox" name="check1" id="check1" />
+                        <label for="check1">승인대기 보기</label>
+                    </div>
+                    <div class="checkBox checkBox-sq">
+                        <input type="checkbox" name="check1" id="check2" />
+                        <label for="check2">승인 보기</label>
+                    </div>
+                    <div class="checkBox checkBox-sq">
+                        <input type="checkbox" name="check1" id="check3" />
+                        <label for="check3">반려 보기</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-line">
+          
+            <thead>
+                    <tr>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>생년월일</th>
+                        <th>전화번호</th>
+                        <th>주소</th>
+                        <th>상태</th>
+                        <th>상세보기</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < 10; i++){ %>
+                <tr>
+                    <td>abcde1234</td>
+                    <td>가나다라</td>
+                    <td>2024.10.19</td>
+                    <td>01012345678</td>
+                    <td>서울시 송파구 법원로 유탑테크벨리 11층</td>
+                    <td><span class="st-badge confirm">승인</span></td>
+                    <td>
+                        <button class="btn btn-blue-border" onclick="openModal('detailModal')">상세보기</button>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+</div>
+<div class="detailModal common-modal" id="detailModal">
+    <div class="mContents">
+        <div class="mContents-head f-sb">
+            <span class="tit">회원정보</span>
+            <button class="closeBtn" onclick="closeModal('detailModal')"></button>
+        </div>
+        <div class="mContents-body">
+            <div class="profile-wrap">
+                <div class="profile">
+                    <img src="../../assets/images/ic-profile.jpg" alt="프로필사진" />
+                </div>
+                <div class="usrInfo">
+                    <div class="usrInfo-wide">
+                        <div class="flex ai-center">
+                            <strong class="usrNm">홍길동</strong>
+                            <span class="st-badge confirm">승인회원</span>
+                        </div>
+                    </div>
+                    <div class="usrInfo-detail">
+                        <ul class="lic">
+                            <li class="lic-item">
+                                <span class="mr-5">국내자격증</span>
+                                <span class="rec-badge frst">1급</span>
+                            </li>
+                            <li class="lic-item">
+                                <span class="mr-5">국제자격증</span>
+                                <span class="rec-badge wh">화이트</span>
+                            </li>
+                        </ul>
+                        <ul class="ref-type">
+                            <li>
+                                <div class="checkBox checkBox-sq">
+                                    <input type="checkbox" name="profile-check" id="check1" />
+                                    <label for="check1">레프리</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkBox checkBox-sq">
+                                    <input type="checkbox" name="profile-check" id="check2" />
+                                    <label for="check2">체어</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkBox checkBox-sq">
+                                    <input type="checkbox" name="profile-check" id="check3" />
+                                    <label for="check3">오프코트</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="checkBox checkBox-sq">
+                                    <input type="checkbox" name="profile-check" id="check4" />
+                                    <label for="check4">라인</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <table class="table horizon">
+                <colgroup>
+                    <col style="width: 140px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>아이디</th>
+                        <td>abcde12334</td>
+                    </tr>
+                    <tr>
+                        <th>이름</th>
+                        <td>홍길동</td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td>abcde12334@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <th>(성별)생년월일</th>
+                        <td>(남) 1990.04.21</td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td>01012341234</td>
+                    </tr>
+                    <tr>
+                        <th>거주지 주소</th>
+                        <td>서울시 송파구 법원로 유탑테크벨리 11층</td>
+                    </tr>
+                    <tr>
+                        <th>계좌정보</th>
+                        <td>
+                            <div class="bank-info">
+                                <span>기업은행</span>
+                                <span>1324321413241321</span>
+                            </div>
+                            <div class="input-download-wrap">
+                                <input name="input" class="inputBox inputBox-default mr-8" type="text" readonly value="통장사본.png" />
+                                <button class="btn btn-blue-border">파일 다운로드</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>국내 심판자격증</th>
+                        <td>
+                            <p>1급</p>
+                            <div class="input-download-wrap">
+                                <input name="input" class="inputBox inputBox-default mr-8" type="text" readonly value="통장사본.png" />
+                                <button class="btn btn-blue-border">파일 다운로드</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>국제 심판자격증</th>
+                        <td>
+                            <p>화이트</p>
+                            <div class="input-download-wrap">
+                                <input name="input" class="inputBox inputBox-default mr-8" type="text" readonly value="국내 심판자격증.png" />
+                                <button class="btn btn-blue-border">파일 다운로드</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>신발 사이즈</th>
+                        <td>280</td>
+                    </tr>
+                    <tr>
+                        <th>옷 사이즈</th>
+                        <td>남성 XL</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mContents-foot f-sb">
+            <button class="btn btn-gray" onclick="closeModal('detailModal')">닫기</button>
+            <button class="btn btn-blue">저장</button>
+        </div>
+    </div>
+</div>
+<%- include('../includes/footer',{ path :'member-management'}) %>

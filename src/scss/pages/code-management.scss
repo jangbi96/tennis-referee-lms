@@ -1,0 +1,50 @@
+@use '../util/mixin' as *;
+
+.cm{
+    .table{
+        text-align: left;
+        &-top {
+            margin-bottom: 16px;
+            @include flex(end, end);
+        }
+        td{
+            padding-left: 24px;
+            &:first-child{
+                width: 12.6%;
+                font-weight: 300;
+            }
+            &:nth-child(2){
+                width: auto;
+            }
+            &:nth-child(3){
+                width: 10%;
+                color: #aaaaaa;
+            }
+            &.blue {
+                color: #4766ff;
+            }
+        }
+    }
+}
+
+.registerModal {
+    .mContents-body {
+        min-height: 210px;
+        max-height: 85vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background: #9c9c9c;
+
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: #fff;
+        }
+    }
+}

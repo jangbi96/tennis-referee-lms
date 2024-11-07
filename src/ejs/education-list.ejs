@@ -1,0 +1,54 @@
+<%- include('../includes/header',{ path :'education-list'}) %>
+<!-- 규정집 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection bn">
+        <h2 class="topTit">규정집</h2>
+        <div class="table-top flex f-sb">
+            <span class="count">전체 <em>(255)</em></span>
+            <div class="right-search flex mb-13">
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="제목을 입력하세요." />
+                <button class="btn btn-gray mr-24">검색</button>
+                <button class="btn btn-blue">등록</button>
+            </div>
+        </div>
+        <table class="table table-line">
+          
+            <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>파일첨부</th>
+                        <th>조회수</th>
+                        <th>등록일</th>
+                        <th>작성자</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < 2; i++){ %>
+                <tr>
+                    <td>9999</td>
+                    <td><span class="rec-badge ing mr-12">중요</span>신규 스카이패스 할인 및 엑설런드 보딩패스 제휴 (코엑스 아쿠아리움)</td>
+                    <td><i class="disc"></i></td>
+                    <td>9999</td>
+                    <td>2024.10.17</td>
+                    <td>가나다라</td>
+                </tr>
+                <% } %>
+                <% for(var i = 0; i < 8; i++){ %>
+                    <tr>
+                        <td>9999</td>
+                        <td>신규 스카이패스 할인 및 엑설런드 보딩패스 제휴 (코엑스 아쿠아리움)</td>
+                        <td><i class="disc"></i></td>
+                        <td>9999</td>
+                        <td>2024.10.17</td>
+                        <td>가나다라</td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+</div>
+<%- include('../includes/footer',{ path :'education-list'}) %>

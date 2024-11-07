@@ -1,0 +1,84 @@
+@use '../util/mixin' as *;
+
+.bq{
+    .count{
+            @include font-style(16);
+        em{
+            @include font-style(14);
+            color: #888;
+        }
+    }
+    .inputBox{
+        width: 320px;
+
+    }
+    .table{
+        text-align: left;
+        td{
+            &:first-child{
+                width: 7.5%;
+            }
+            &:nth-child(2){
+                width: auto;
+            }
+            &:nth-child(3){
+                width: 11.3%;
+            }
+            &:nth-child(4){
+                width: 10%;
+            }
+            &:nth-child(5){
+                width: 10%;
+            }
+            &:nth-child(6){
+                width: 10%;
+                color: #aaaaaa;
+            }
+
+            &:not(:nth-child(2)) {
+                font-weight: 300;
+            }
+
+            &.blue {
+                color: #4766ff;
+            }
+        }
+    }
+}
+
+.detailModal {
+    .mContents-body {
+        max-height: 85vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background: #9c9c9c;
+
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: #fff;
+        }
+    }
+
+    h5 {
+        @include font-style(18, 600);
+        margin-bottom: 12px;
+    }
+
+    .table {
+        tr {
+            &:nth-child(5) {
+                td {
+                    padding: 40px 20px;
+                    line-height: 2.25;
+                }
+            }
+        }
+    }
+}

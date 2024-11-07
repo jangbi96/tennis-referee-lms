@@ -1,0 +1,83 @@
+<%- include('../includes/header',{ path :'code-management'}) %>
+<!-- 부서코드관리 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cm">
+        <h2 class="topTit">부서코드관리</h2>
+        <div class="table-top flex">
+            <div class="right-search">
+                <button class="btn btn-blue" onclick="openModal('registerModal')">등록</button>
+            </div>
+        </div>
+        <table class="table table-line">
+          
+            <thead>
+                    <tr>
+                        <th>부서코드</th>
+                        <th>부서명칭</th>
+                        <th>사용유무</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < 5; i++){ %>
+                <tr>
+                    <td>9999</td>
+                    <td>18세 남자부 단식</td>
+                    <td class="blue">사용</td>
+                </tr>
+                <% } %>
+                <% for(var i = 0; i < 5; i++){ %>
+                <tr>
+                    <td>9999</td>
+                    <td>18세 남자부 단식</td>
+                    <td>사용안함</td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+</div>
+<div class="registerModal common-modal" id="registerModal">
+    <div class="mContents">
+        <div class="mContents-head f-sb">
+            <span class="tit">부서코드 등록</span>
+            <button class="closeBtn" onclick="closeModal('registerModal')"></button>
+        </div>
+        <div class="mContents-body">
+            <table class="table horizon">
+                <colgroup>
+                    <col style="width: 140px;">
+                    <col style="width: auto;">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>부서명칭</th>
+                        <td><input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." /></td>
+                    </tr>
+                    <tr>
+                        <th>사용유무</th>
+                        <td>
+                            <div class="flex">
+                                <div class="checkBox checkBox-sq mr-24">
+                                    <input type="checkbox" name="check1" id="check1" />
+                                    <label for="check1">사용</label>
+                                </div>
+                                <div class="checkBox checkBox-sq">
+                                    <input type="checkbox" name="check1" id="check2" />
+                                    <label for="check2">사용안함</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mContents-foot f-sb">
+            <button class="btn btn-gray" onclick="closeModal('registerModal')">닫기</button>
+            <button class="btn btn-blue">저장</button>
+        </div>
+    </div>
+</div>
+<%- include('../includes/footer',{ path :'code-management'}) %>
