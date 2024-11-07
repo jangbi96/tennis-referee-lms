@@ -16,9 +16,9 @@
         <table class="table table-line">
             <colgroup>
                 <col style="width: 35%;">
-                <col style="width: 5%;">
-                <col style="width: 15%;">
-                <col style="width: 15%;">
+                <col style="width: 10%;">
+                <col style="width: 12.5%;">
+                <col style="width: 12.5%;">
                 <col style="width: 15%;">
                 <col style="width: 15%;">
             </colgroup>
@@ -43,9 +43,9 @@
                     <td>서울시 송파구</td>
                     <td class="">
                         <div class="flex">
-                            <span class="role active">레프리</span>
-                            <span class="role">체어</span>
-                            <span class="role">오프코트</span>
+                            <span class="role mr-16 active">레프리</span>
+                            <span class="role mr-16">체어</span>
+                            <span class="role mr-16">오프코트</span>
                             <span class="role">라인</span>
                         </div>
                     </td>
@@ -57,7 +57,7 @@
         <!-- 리스트 없으면 disabled 속성 추가-->
         <button class="more-btn mt-25">더보기<i></i></button>
     </section>
-    <div class="common-modal" id="editComModal" style="display: block;">
+    <div class="common-modal" id="editComModal">
         <div class="mContents" onclick="(e)=> e.stopPropagation()">
             <div class="mContents-head f-sb">
                 <span class="tit">대회 정보</span>
@@ -187,7 +187,7 @@
 
             </div>
             <div class="mContents-foot f-sb">
-                <button class="btn btn-gray">닫기</button>
+                <button class="btn btn-gray" onclick="closeModal('editComModal')">닫기</button>
                 <button class="btn btn-blue">대회수정</button>
             </div>
         </div>

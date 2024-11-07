@@ -12,6 +12,16 @@
         width: 320px;
 
     }
+    .role{
+        @include font-style(16,300);
+
+        &.active{
+        @include font-style(16);
+
+            color: #222;
+        }
+        color: #ccc;
+    }
 
     
 }
