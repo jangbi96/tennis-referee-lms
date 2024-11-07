@@ -105,3 +105,42 @@
         }
     }
 }
+
+#excelModal {
+    .fileBox {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            position: relative;
+        }
+
+        .inputBox {
+            width: 362px;
+            background-color: #fff;
+        }
+
+        .btn {
+            padding: 0 20px;
+        }
+
+        .remove {
+            @include flex();
+            @include font-style(14);
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url(../../assets/images/ic-close.png) no-repeat center / 10px #f0f2f5;
+                border-radius: 50%;
+                margin-left: 8px;
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@
                 <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
                 <button class="btn btn-gray mr-24">검색</button>
                 <button class="btn btn-blue mr-4">대회등록</button>
-                <button class="btn btn-green">엑셀 등록</button>
+                <button class="btn btn-green" onclick="openModal('excelModal')"">엑셀 등록</button>
             </div>
         </div>
         <table class="table table-line">
@@ -189,6 +189,47 @@
             <div class="mContents-foot f-sb">
                 <button class="btn btn-gray" onclick="closeModal('editComModal')">닫기</button>
                 <button class="btn btn-blue">대회수정</button>
+            </div>
+        </div>
+    </div>
+    <div class="common-modal" id="excelModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">엑셀등록</span>
+                <button class="closeBtn" onclick="closeModal('excelModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <table class="table horizon">
+                    <colgroup>
+                        <col style="width: 140px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>양식 다운로드</th>
+                            <td>
+                                <button class="btn btn-green-border">엑셀 양식 다운로드</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>파일등록</th>
+                            <td>   
+                                <div class="fileBox">
+                                    <button class="btn btn-blue-border mr-8">파일첨부</button>
+                                    <div>
+                                        <input name="input" class="inputBox inputBox-default" type="text" readonly />
+                                        <button class="remove">삭제</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('excelModal')">닫기</button>
+                <button class="btn btn-blue">엑셀등록</button>
             </div>
         </div>
     </div>
