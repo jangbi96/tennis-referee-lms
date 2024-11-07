@@ -94,7 +94,6 @@ class Dropdown {
             this.ctmView.textContent = selectedOp.text;
         } else {
             const selectedOp = this.select.querySelector("option:disabled");
-            console.log(this.select)
             this.ctmView.textContent = selectedOp.text;
         }
 

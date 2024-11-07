@@ -9,12 +9,19 @@
             <div class="right-search flex mb-13">
                 <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
                 <button class="btn btn-gray mr-24">검색</button>
-                <button class="btn btn-blue mr-4">안녕</button>
+                <button class="btn btn-blue mr-4">대회등록</button>
                 <button class="btn btn-green">엑셀 등록</button>
             </div>
         </div>
         <table class="table table-line">
-          
+            <colgroup>
+                <col style="width: 35%;">
+                <col style="width: 5%;">
+                <col style="width: 15%;">
+                <col style="width: 15%;">
+                <col style="width: 15%;">
+                <col style="width: 15%;">
+            </colgroup>
             <thead>
                     <tr>
                         <th class="text-left">대회명</th>
@@ -26,9 +33,9 @@
                     </tr>
             </thead>
             <tbody>
-                <% for(var i = 0; i < 10; i++){ %>
+                <% for(var i = 0; i < 5; i++){ %>
                 <tr>
-                    <td>
+                    <td onclick="openModal('editComModal')">
                         <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
                     <td class="text-center">국내대회</td>
                     <td>2024.10.19~2024.10.27</td>
@@ -50,5 +57,141 @@
         <!-- 리스트 없으면 disabled 속성 추가-->
         <button class="more-btn mt-25">더보기<i></i></button>
     </section>
+    <div class="common-modal" id="editComModal" style="display: block;">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">대회 정보</span>
+                <button class="closeBtn" onclick="closeModal('editComModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <table class="table horizon">
+                    <colgroup>
+                        <col style="width: 140px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>대회명</th>
+                            <td>
+                                <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>대회종류</th>
+                            <td>   
+                                <div class="selectBox cptKind w-200">
+                                    <select name="cptKind">
+                                        <option value="" selected disabled readonly>선택하세요.</option>
+                                        <option value="1">일</option>
+                                        <option value="2">이</option>
+                                        <option value="3">삼</option>
+                                    </select>
+                                    <div class="customSelect">
+                                        <div class="customSelect-view"></div>
+                                        <ul class="customSelect-options mt-5"></ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>부서</th>
+                            <td>
+                                <div class="bu flex">
+                                    <div class="selectBox selectBuseo selectBox0">
+                                        <select name="select0val" >
+                                            <option value="" selected disabled readonly>선택하세요.</option>
+                                            <option value="1">일</option>
+                                            <option value="2">이</option>
+                                            <option value="3">삼</option>
+                                        </select>
+                                        <div class="customSelect">
+                                            <div class="customSelect-view"></div>
+                                            <ul class="customSelect-options mt-5"></ul>
+                                        </div>
+                                        <button class="removeOp removeSc"></button>
+                                    </div>
+                                    <button class="addBtn addBuOp"></button>
+                                </div>   
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>신청기간</th>
+                            <td>
+                                <div class="flex ai-center">
+                                    <div class="datepicker dpApplyStart" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>&nbsp;~&nbsp;
+                                    <div class="datepicker dpApplyEnd" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>대회기간</th>
+                            <td>
+                                <div class="flex ai-center">
+                                    <div class="datepicker dpGameStart" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>&nbsp;~&nbsp;
+                                    <div class="datepicker dpGameEnd" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>개최지역</th>
+                            <td>
+                                <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>지원대상</th>
+                            <td class="supplyTarget">
+                                <div class="wrap flex">
+                                    <div class="line flex ai-center">
+                                        <div class="selectBox supplyTargetSl supplyTargetSl0">
+                                            <select name="supplySlt0" >
+                                                <option value="" selected disabled readonly>선택하세요.</option>
+                                                <option value="1">일</option>
+                                                <option value="2">이</option>
+                                                <option value="3">삼</option>
+                                            </select>
+                                            <div class="customSelect">
+                                                <div class="customSelect-view"></div>
+                                                <ul class="customSelect-options mt-5"></ul>
+                                            </div>
+                                        </div>
+                                        <span class="txt ml-16 mr-8">모집인원</span>
+                                        <input name="input0" class="inputBox inputBox-default" />
+                                        <button class="removeOp removeLine"></button>
+                                    </div>
+                                    <button class="addBtn addTarget ml-24"></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>대회소개</th>
+                            <td class="supplyTarget">
+                                <div class="textBox">
+                                    <div class="textBox-wrap">
+                                        <textarea name="textarea" placeholder="내용을 입력하세요." maxlength="50">adsfasd</textarea>
+                                    </div>
+                                    <div class="textBox-limit mt-8"><span></span>&nbsp;/ 50</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray">닫기</button>
+                <button class="btn btn-blue">대회수정</button>
+            </div>
+        </div>
+    </div>
 </div>
+
 <%- include('../includes/footer',{ path :'competition-allocation-management'}) %>

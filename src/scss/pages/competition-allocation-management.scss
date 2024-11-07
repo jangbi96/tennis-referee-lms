@@ -12,26 +12,86 @@
         width: 320px;
 
     }
-    .table{
-        td{
-            &:first-child{
-                width: 35%;
-            }
-            &:nth-child(2){
-                width: 5%;
-            }
-            &:nth-child(3){
-                width: 15%;
-            }
-            &:nth-child(4){
-                width: 15%;
-            }
-            &:nth-child(5){
-                width: 15%;
-            }
-            &:nth-child(6){
-                width: 15%;
-            }
+
+    
+}
+
+#editComModal{
+    .bu{
+        .selectBox{
+            width: 228px;
+            padding-right: 28px;
+            position: relative;
+            margin-right: 16px;
+        }
+        flex-wrap: wrap;
+        row-gap: 7px;
+    }
+    .wrap{
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+    .supplyTarget{
+        .supplyTargetSl{
+            width: 200px;
+        }
+        
+        .line{
+            // width: max-content;
+            position: relative;
+            padding-right: 28px;
+            width: 385px;
+        }
+        .inputBox{
+            width: 80px;
+        }
+        .txt{
+            @include font-style(14,500);
+        }
+        
+    }
+    .removeOp{
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: url('../../assets/images/ic-close.png')no-repeat center #f0f2f5;
+        background-size: 10px;
+    }
+    .addBtn{
+        border-radius: 2px;
+        border: solid 1px #4766ff;
+        background-color: #fff;
+        width: 40px;
+        height: 40px;
+        position: relative;
+        &::before{
+            content:'';
+            display: inline-block;
+            position: absolute;
+            width: 14px;
+            height: 3px;
+            background: #4766ff;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 2px;
+        }
+        &::after{
+            content:'';
+            display: inline-block;
+            position: absolute;
+            width: 3px;
+            height: 14px;
+            background: #4766ff;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 2px;
+
         }
     }
 }
