@@ -10,7 +10,7 @@
                 <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
                 <button class="btn btn-gray mr-24">검색</button>
                 <button class="btn btn-blue mr-4">대회등록</button>
-                <button class="btn btn-green" onclick="openModal('excelModal')"">엑셀 등록</button>
+                <button class="btn btn-green" onclick="openModal('excelModal')">엑셀 등록</button>
             </div>
         </div>
         <table class="table table-line">
@@ -216,6 +216,7 @@
                             <td>   
                                 <div class="fileBox">
                                     <button class="btn btn-blue-border mr-8">파일첨부</button>
+                                    <input type="file" id="file" name="file" style="display:none;" />
                                     <div>
                                         <input name="input" class="inputBox inputBox-default" type="text" readonly />
                                         <button class="remove">삭제</button>

@@ -375,6 +375,13 @@
             background-size: 10px;
         }
     }
+    &.cancel{
+        &::before{
+            @extend %beforeStyle;
+            background: url('../assets/images/ic-ex.png')no-repeat center #d7dbe0;
+            background-size: 10px;
+        }
+    }
 
     @include media('T') {
        @include font-style(13);
@@ -642,6 +649,21 @@
         &-body{
             background: #fff;
             padding: 30px;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                width: 7px;
+            }
+            
+            &::-webkit-scrollbar-thumb {
+                border-radius: 20px;
+                background: #9c9c9c;
+    
+            }
+            
+            &::-webkit-scrollbar-track {
+                background: #fff;
+            }
 
             @include media('T') {
                 max-height: 70vh;

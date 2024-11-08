@@ -5,10 +5,14 @@ if (textBox) {
         const textarea = e.querySelector("textarea");
         const limit = e.querySelector(".textBox-limit span");
 
-        limit.textContent = textarea.value.length;
+        if(limit) {
+            limit.textContent = textarea.value.length;
+        }
 
         textarea.addEventListener("input", e => {
             const value = e.target.value;
+            
+            if(!limit) return
             if (value.length > textarea.getAttribute("maxlength")) {
                 limit.textContent = textarea.getAttribute("maxlength");
             } else {

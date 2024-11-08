@@ -1,0 +1,360 @@
+<%- include('../includes/header',{ path :'competition-assignment-management'}) %>
+<!-- 대회배정관리 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cam">
+        <h2 class="topTit">대회배정관리</h2>
+        <div class="table-top">
+            <div class="right-search flex">
+                <div class="flex ai-center mr-24">
+                    <p class="mr-12">대회시작일</p>
+                    <div class="datepicker dpApplyStart" id="datepicker">
+                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                    </div>&nbsp;~&nbsp;
+                    <div class="datepicker dpApplyEnd" id="datepicker">
+                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                    </div>
+                </div>
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
+                <button class="btn btn-gray mr-24">검색</button>
+                <button class="btn btn-green" onclick="openModal('excelModal')">엑셀 등록</button>
+            </div>
+            <div class="bottom flex f-sb">
+                <span class="count">전체<em>(255)</em></span>
+                <div class="checkBox checkBox-sq">
+                    <input type="checkbox" name="isAssigned" id="check1" />
+                    <label for="check1">배정완료되지 않은 상태의 대회만 보기</label>
+                </div>
+            </div>
+        </div>
+        <table class="table table-line">
+            <colgroup>
+                <col style="width: auto;">
+                <col style="width: 6.9%;">
+                <col style="width: 13.8%;">
+                <col style="width: 13.8%;">
+                <col style="width: 10%;">
+                <col style="width: 10%;">
+            </colgroup>
+            <thead>
+                    <tr>
+                        <th class="text-left">대회명</th>
+                        <th>대회종류</th>
+                        <th class="text-left">신청기간</th>
+                        <th class="text-left">대회기간</th>
+                        <th class="text-left">상태</th>
+                        <th class="text-left">배정</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < 3; i++){ %>
+                <tr>
+                    <td onclick="openModal('infoModal')">
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td class="text-center">국내대회</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge confirm">배정 완료</span></td>
+                    <td>
+                        <button class="btn btn-blue" disabled>배정하기</button>
+                    </td>
+                </tr>
+                <% } %>
+                <% for(var i = 0; i < 3; i++){ %>
+                <tr>
+                    <td onclick="openModal('infoModal')">
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td class="text-center">국내대회</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge pending">임시저장</span></td>
+                    <td>
+                        <button class="btn btn-blue" onclick="openModal('assignModal')">배정하기</button>
+                    </td>
+                </tr>
+                <% } %>
+                <% for(var i = 0; i < 4; i++){ %>
+                <tr>
+                    <td onclick="openModal('infoModal')">
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td class="text-center">국내대회</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge return">미지정</span></td>
+                    <td>
+                        <button class="btn btn-blue" onclick="openModal('assignModal')">배정하기</button>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+    <div class="common-modal" id="infoModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">대회 정보</span>
+                <button class="closeBtn" onclick="closeModal('infoModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <div class="detail-info">
+                    <h3>2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</h3>
+                </div>
+                <div class="description">
+                    <dl>
+                        <dt><i class="clock"></i>신청기간</dt>
+                        <dd>2024.10.19 ~ 2024.10.30</dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="clock"></i>대회기간</dt>
+                        <dd>2024.10.19 ~ 2024.10.30</dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="pin"></i>대회장소</dt>
+                        <dd>전라북도 완주군</dd>
+                    </dl>
+                    <dl>
+                        <dt><i class="check"></i>신청대상</dt>
+                        <dd>레프리, 체어, 오프코트, 라인</dd>
+                    </dl>
+                </div>
+                <div class="html-con"></div>
+            </div>
+            <div class="mContents-foot f-ct">
+                <button class="btn btn-gray" onclick="closeModal('infoModal')">닫기</button>
+            </div>
+        </div>
+    </div>
+    <div class="common-modal" id="excelModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">엑셀등록</span>
+                <button class="closeBtn" onclick="closeModal('excelModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <table class="table horizon">
+                    <colgroup>
+                        <col style="width: 140px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>양식 다운로드</th>
+                            <td>
+                                <button class="btn btn-green-border">엑셀 양식 다운로드</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>파일등록</th>
+                            <td>   
+                                <div class="fileBox">
+                                    <button class="btn btn-blue-border mr-8">파일첨부</button>
+                                    <input type="file" id="file" name="file" style="display:none;" />
+                                    <div>
+                                        <input name="input" class="inputBox inputBox-default" type="text" readonly />
+                                        <button class="remove">삭제</button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('excelModal')">닫기</button>
+                <button class="btn btn-blue">엑셀등록</button>
+            </div>
+        </div>
+    </div>
+    <div class="common-modal" id="assignModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">대회 배정</span>
+                <button class="closeBtn" onclick="closeModal('assignModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <h3>2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</h3>
+                <div class="flex f-sb mb-12">
+                    <ul class="tabs-assign tabs tabs-rd tabs-rd-sm" data-tag="tabContents">
+                        <li class="tab active" data-idx="0">레프리 (2/6)</li>
+                        <li class="tab" data-idx="1">체어 (7/3)</li>
+                        <li class="tab" data-idx="2">오프코트 (7/3)</li>
+                    </ul>
+                    <button class="btn btn-green-border">배정내용 엑셀 다운로드</button>
+                </div>
+                <div class="tab-contents" data-tag="tabContents">
+                    <div class="content-item" data-idx="0">
+                        <table class="table">
+                            <colgroup>
+                                <col style="width: auto">
+                                <col style="width: 13.3%">
+                                <col style="width: 15.5%">
+                                <col style="width: 20%">
+                                <col style="width: 24%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>아이디</th>
+                                    <th>이름</th>
+                                    <th>생년월일</th>
+                                    <th>파일</th>
+                                    <th>부서선택</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < 6; i++){ %>
+                                <tr>
+                                    <td>
+                                        <div class="checkBox checkBox-sq">
+                                            <input type="checkbox" name="tab1Id" id="tab1Id<%= i %>" />
+                                            <label for="tab1Id<%= i %>">abcde1234</label>
+                                        </div>
+                                    </td>
+                                    <td>가나다라</td>
+                                    <td>2024.10.19</td>
+                                    <td>
+                                        <button class="btn btn-blue-border">
+                                            파일 다운로드
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div class="selectBox tab1Buseo tab1Buseo<%= i %>">
+                                            <select name="tab1Buseo<%= i %>">
+                                                <option value="" selected disabled readonly>부서선택</option>
+                                                <option value="1">일</option>
+                                                <option value="2">이</option>
+                                                <option value="3">삼</option>
+                                            </select>
+                                            <div class="customSelect">
+                                                <div class="customSelect-view"></div>
+                                                <ul class="customSelect-options mt-5"></ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-item" data-idx="1">
+                        <table class="table">
+                            <colgroup>
+                                <col style="width: auto">
+                                <col style="width: 13.3%">
+                                <col style="width: 15.5%">
+                                <col style="width: 20%">
+                                <col style="width: 24%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>아이디</th>
+                                    <th>이름</th>
+                                    <th>생년월일</th>
+                                    <th>파일</th>
+                                    <th>부서선택</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < 7; i++){ %>
+                                <tr>
+                                    <td>
+                                        <div class="checkBox checkBox-sq">
+                                            <input type="checkbox" name="tab2Id" id="tab2Id<%= i %>" />
+                                            <label for="tab2Id<%= i %>">abcde1234</label>
+                                        </div>
+                                    </td>
+                                    <td>가나다라</td>
+                                    <td>2024.10.19</td>
+                                    <td>
+                                        <button class="btn btn-blue-border">
+                                            파일 다운로드
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div class="selectBox tab2Buseo tab2Buseo<%= i %>">
+                                            <select name="tab2Buseo<%= i %>">
+                                                <option value="" selected disabled readonly>부서선택</option>
+                                                <option value="1">일</option>
+                                                <option value="2">이</option>
+                                                <option value="3">삼</option>
+                                            </select>
+                                            <div class="customSelect">
+                                                <div class="customSelect-view"></div>
+                                                <ul class="customSelect-options mt-5"></ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="content-item" data-idx="2">
+                        <table class="table">
+                            <colgroup>
+                                <col style="width: auto">
+                                <col style="width: 13.3%">
+                                <col style="width: 15.5%">
+                                <col style="width: 20%">
+                                <col style="width: 24%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>아이디</th>
+                                    <th>이름</th>
+                                    <th>생년월일</th>
+                                    <th>파일</th>
+                                    <th>부서선택</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var i = 0; i < 7; i++){ %>
+                                <tr>
+                                    <td>
+                                        <div class="checkBox checkBox-sq">
+                                            <input type="checkbox" name="tab3Id" id="tab3Id<%= i %>" />
+                                            <label for="tab3Id<%= i %>">abcde1234</label>
+                                        </div>
+                                    </td>
+                                    <td>가나다라</td>
+                                    <td>2024.10.19</td>
+                                    <td>
+                                        <button class="btn btn-blue-border">
+                                            파일 다운로드
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <div class="selectBox tab3Buseo tab3Buseo<%= i %>">
+                                            <select name="tab3Buseo<%= i %>">
+                                                <option value="" selected disabled readonly>부서선택</option>
+                                                <option value="1">일</option>
+                                                <option value="2">이</option>
+                                                <option value="3">삼</option>
+                                            </select>
+                                            <div class="customSelect">
+                                                <div class="customSelect-view"></div>
+                                                <ul class="customSelect-options mt-5"></ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('assignModal')">닫기</button>
+                <div>
+                    <button class="btn btn-blue-border mr-4">임시저장</button>
+                    <button class="btn btn-blue">배정</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer',{ path :'competition-assignment-management'}) %>

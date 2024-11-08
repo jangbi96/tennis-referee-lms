@@ -1,0 +1,202 @@
+<%- include('../includes/header',{ path :'competition-work-record'}) %>
+<!-- 워크레코드 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cam">
+        <h2 class="topTit">워크레코드</h2>
+        <div class="table-top">
+            <div class="right-search flex">
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
+                <button class="btn btn-gray">검색</button>
+            </div>
+            <div class="bottom flex f-sb">
+                <span class="count">전체 <em>(255)</em></span>
+                <div class="checkBox checkBox-sq">
+                    <input type="checkbox" name="isConfirm" id="check1" />
+                    <label for="check1">승인대기 상태인 대회만 보기</label>
+                </div>
+            </div>
+        </div>
+        <table class="table table-line">
+            <colgroup>
+                <col style="width: auto;">
+                <col style="width: 13.2%;">
+                <col style="width: 6.9%;">
+                <col style="width: 13.8%;">
+                <col style="width: 10%;">
+                <col style="width: 10%;">
+            </colgroup>
+            <thead>
+                    <tr>
+                        <th class="text-left">대회명</th>
+                        <th class="text-left">개최지역</th>
+                        <th class="text-left">이름</th>
+                        <th class="text-left">대회기간</th>
+                        <th class="text-left">상태</th>
+                        <th class="text-left">상세보기</th>
+                    </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td>서울 송파구</td>
+                    <td>가나다라</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge confirm">승인</span></td>
+                    <td>
+                        <button class="btn btn-blue-border" onclick="openModal('detailModal')">상세보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td>서울 송파구</td>
+                    <td>가나다라</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge pending">승인대기</span></td>
+                    <td>
+                        <button class="btn btn-blue-border" onclick="openModal('detailModal')">상세보기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td>서울 송파구</td>
+                    <td>가나다라</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge return">반려</span></td>
+                    <td>
+                        <button class="btn btn-blue-border" onclick="openModal('detailModal')">상세보기</button>
+                    </td>
+                </tr>
+                <% for(var i = 0; i < 7; i++){ %>
+                <tr>
+                    <td>
+                        <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                    <td>서울 송파구</td>
+                    <td>가나다라</td>
+                    <td>2024.10.19~2024.10.27</td>
+                    <td><span class="st-badge cancel">승인취소</span></td>
+                    <td>
+                        <button class="btn btn-blue-border" onclick="openModal('detailModal')">상세보기</button>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+    <div class="common-modal" id="detailModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">대회 정보</span>
+                <button class="closeBtn" onclick="closeModal('detailModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <table class="table horizon">
+                    <colgroup>
+                        <col style="width: 140px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>대회명</th>
+                            <td>
+                                <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>대회기간</th>
+                            <td>
+                                <div class="flex ai-center">
+                                    <div class="datepicker dpApplyStart" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>&nbsp;~&nbsp;
+                                    <div class="datepicker dpApplyEnd" id="datepicker">
+                                        <input type="text" class="datepicker-view" name="a" readonly placeholder="YYYY.MM.DD" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>개최지역</th>
+                            <td>
+                                <input name="input" class="inputBox inputBox-default" type="text" placeholder="내용을 입력하세요." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>부서</th>
+                            <td>
+                                <div class="selectBox selectBuseo w-200">
+                                    <select name="selectBuseo">
+                                        <option value="" selected disabled readonly>선택하세요.</option>
+                                        <option value="1">일</option>
+                                        <option value="2">이</option>
+                                        <option value="3">삼</option>
+                                    </select>
+                                    <div class="customSelect">
+                                        <div class="customSelect-view"></div>
+                                        <ul class="customSelect-options mt-5"></ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>역할</th>
+                            <td>
+                                <div class="selectBox selectRole w-200">
+                                    <select name="selectRole">
+                                        <option value="" selected disabled readonly>선택하세요.</option>
+                                        <option value="1">일</option>
+                                        <option value="2">이</option>
+                                        <option value="3">삼</option>
+                                    </select>
+                                    <div class="customSelect">
+                                        <div class="customSelect-view"></div>
+                                        <ul class="customSelect-options mt-5"></ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>파일첨부</th>
+                            <td>
+                                <div class="fileBox">
+                                    <button class="btn btn-blue-border mr-8">파일첨부</button>
+                                    <input type="file" id="file" name="file" style="display:none;" />
+                                    <div>
+                                        <input name="input" class="inputBox inputBox-default" type="text" readonly />
+                                        <button class="remove">삭제</button>
+                                    </div>
+                                    <p>증빙할 수 있는 파일을 첨부해주세요</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>반려 사유</th>
+                            <td>
+                                <div class="textBox">
+                                    <div class="textBox-wrap">
+                                        <textarea name="textarea" maxlength="1000" placeholder="반려시 내용을 입력하세요."></textarea>
+                                    </div>
+                                    <div class="textBox-limit mt-8"><span></span>&nbsp;/ 1000</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('detailModal')">닫기</button>
+                <div>
+                    <button class="btn btn-red-border">반려</button>
+                    <button class="btn btn-blue">승인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer',{ path :'competition-work-record'}) %>

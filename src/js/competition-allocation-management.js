@@ -125,3 +125,18 @@ function deleteSupplyTargetOp (){
     });
 
 }
+
+// 첨부파일
+$(".fileBox .btn-blue-border").click(function() {
+    $("#file").click();
+})
+
+$("#file").change(function() {
+    let fileValue = $("#file").val().split("\\")
+    $(".fileBox .inputBox-default").val(fileValue[fileValue.length-1])
+})
+
+$(".fileBox .remove").click(function() {
+    $("#file").val("");
+    $(".fileBox .inputBox-default").val("");
+})

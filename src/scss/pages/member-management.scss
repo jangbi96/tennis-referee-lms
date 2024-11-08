@@ -74,7 +74,6 @@
 .detailModal {
     .mContents-body {
         max-height: 85vh;
-        overflow-y: auto;
 
         &::-webkit-scrollbar {
             width: 7px;

@@ -1,0 +1,71 @@
+@use '../util/mixin' as *;
+
+.cam{
+    .count{
+            @include font-style(16);
+        em{
+            @include font-style(14);
+            color: #888;
+        }
+    }
+    .inputBox{
+        width: 320px;
+    }
+
+    .table {
+        &-top {
+            .right-search {
+                justify-content: flex-end;
+            }
+            .bottom {
+                width: 100%;
+                margin: 24px 0 16px;
+            }
+        }
+
+        td {
+            .btn {
+                padding: 0 20px;
+                height: 32px;
+            }
+        }
+    }
+}
+
+#detailModal {
+    .mContents-body {
+        max-height: 480px;
+    }
+    
+    h3 {
+        @include font-style(28, 600);
+
+        span {
+            @include font-style(18, 500);
+        }
+    }
+
+    .role{
+        @include font-style(16,300);
+
+        &.active{
+        @include font-style(16);
+
+            color: #222;
+        }
+        color: #ccc;
+    }
+
+    .table {
+        p {
+            line-height: 1.5;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+        }
+    }
+}

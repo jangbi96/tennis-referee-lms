@@ -43,14 +43,15 @@
                     <th>파일첨부</th>
                     <td>
                         <div class="fileBox">
-                            <button class="btn btn-blue-border mr-8">파일첨부</button>
+                            <button class="btn btn-blue-border btn-file mr-8">파일첨부</button>
+                            <input type="file" id="file" name="file" style="display:none;" />
                             <ul>
                                 <li>
-                                    <input name="input" class="inputBox inputBox-default" type="text" readonly />
+                                    <input name="file0" class="inputBox inputBox-default" type="text" readonly />
                                     <button class="remove">삭제</button>
-                                    <button class="btn btn-blue-border"><span>+</span></button>
                                 </li>
                             </ul>
+                            <button class="btn btn-blue-border btn-plus"><span>+</span></button>
                             <p>50mb 미만의 파일만 업로드 가능합니다</p>
                         </div>
                     </td>

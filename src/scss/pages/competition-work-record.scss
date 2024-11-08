@@ -1,0 +1,138 @@
+@use '../util/mixin' as *;
+
+.cam{
+    .count{
+            @include font-style(16);
+        em{
+            @include font-style(14);
+            color: #888;
+        }
+    }
+    .inputBox{
+        width: 320px;
+    }
+
+    .table {
+        &-top {
+            .right-search {
+                justify-content: flex-end;
+            }
+            .bottom {
+                width: 100%;
+                margin: 24px 0 16px;
+            }
+        }
+
+        td {
+            .btn {
+                padding: 0 20px;
+                height: 32px;
+            }
+        }
+    }
+}
+
+%descriptionStyle{
+    padding-bottom: 24px;
+    dl {
+        @include flex(start, center);
+        margin-bottom: 9px;
+
+        dt {
+            @include font-style(14,400);
+            color: #888;
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid #e6e8eb;
+            i{
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+                vertical-align: bottom;
+                &.clock{
+                    background: url('../../assets/images/ic-clock.png')no-repeat center / 16px;
+                }
+                &.pin{
+                    background: url('../../assets/images/ic-pin.png')no-repeat center / 16px;
+                }
+                &.check{
+                    background: url('../../assets/images/ic-check-dg.png')no-repeat center / 14px;
+                }
+            }
+        }
+
+        dd {
+            @include font-style(14);
+            color: #444;
+        }
+    }
+}
+
+%detailTitleStyle{
+    @include flex(start,center);
+    margin-bottom: 16px;
+
+    h3{
+        @include font-style(28, 600);
+    }
+}
+
+#infoModal{
+    .detail-info{
+        @extend %detailTitleStyle;
+    }
+    .description{
+        @extend %descriptionStyle;
+    }
+    .html-con{
+        border-top: 1px solid #e1e5eb;
+
+    }
+}
+
+#detailModal {
+    .fileBox {
+        display: flex;
+        flex-wrap: wrap;
+
+        div {
+            position: relative;
+        }
+
+        .inputBox {
+            width: 334px;
+            background-color: #fff;
+        }
+
+        .btn {
+            padding: 0 20px;
+        }
+
+        .remove {
+            @include flex();
+            @include font-style(14);
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url(../../assets/images/ic-close.png) no-repeat center / 10px #f0f2f5;
+                border-radius: 50%;
+                margin-left: 8px;
+            }
+        }
+
+        p {
+            width: 100%;
+            color: #888;
+            @include font-style(14);
+            margin-top: 8px;
+        }
+    }
+}
