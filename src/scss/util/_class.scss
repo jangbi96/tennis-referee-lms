@@ -71,26 +71,28 @@
   width: 200px;
 }
 
-.btn-group{
-  button{
-    width: 20px;
-    height: 20px;
-    background: url('../assets/images/ic-arrow.png')no-repeat center / 16px;
-    &:first-child{
-        transform: rotate(180deg);
-        position: relative;
-        margin-right: 25px;
-        &::after{
-            content: "";
-            display: inline-block;
-            width: 1px;
-            height: 16px;
-            background-color: #dbe1ea;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: -13px;
-        }   
+.div:not(.note-editor) {
+  .btn-group{
+    button{
+      width: 20px;
+      height: 20px;
+      background: url('../assets/images/ic-arrow.png')no-repeat center / 16px;
+      &:first-child{
+          transform: rotate(180deg);
+          position: relative;
+          margin-right: 25px;
+          &::after{
+              content: "";
+              display: inline-block;
+              width: 1px;
+              height: 16px;
+              background-color: #dbe1ea;
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              left: -13px;
+            }   
+        }
     }
-}
+  }
 }

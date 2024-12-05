@@ -124,14 +124,6 @@ header{
             max-height: 30px;
         }
 
-        &.pc {
-            display: none;
-        }
-
-        &.mo {
-            display: block;
-        }
-
         .header {
             &-top {
                 height: 100%;
@@ -478,6 +470,7 @@ footer{
         width: 240px;
         background: #fff;
         padding: 16px 20px;
+        flex-shrink: 0;
         .depth1-item{
             .menuNm{
                 padding: 15px 0 14px 0;
@@ -533,6 +526,7 @@ footer{
     .mainSection{
         background: #fff;
         width: calc(100vw - 264px);
+        min-width: 600px;
         margin: 24px;
         border-radius: 8px;
         box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.06);
