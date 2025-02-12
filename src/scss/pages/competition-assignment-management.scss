@@ -179,3 +179,49 @@
         }
     }
 }
+
+#addModal {
+    .mContents {
+        &-body {
+            max-height: 509px;
+
+            .w {
+                &-320 {
+                    width: 320px;
+                }
+            }
+        }
+    }
+
+    .table {
+        th {
+            text-align: left;
+        }
+        td {
+            border: 1px solid #e1e5eb;
+            text-align: left;
+            padding-left: 24px;
+            @include font-style(16);
+
+            .btn {
+                height: 32px;
+                padding: 8px 20px;
+            }
+
+            .selectBox {
+                width: 160px;
+
+                .customSelect {
+                    &-view {
+                        height: 32px;
+                        line-height: 32px;
+                    }
+
+                    &-options {
+                        top: 37px;
+                    }
+                }
+            }
+        }
+    }
+}

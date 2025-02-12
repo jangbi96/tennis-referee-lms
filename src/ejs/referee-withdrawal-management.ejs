@@ -1,0 +1,222 @@
+<%- include('../includes/header',{ path :'referee-withdrawal-management'}) %>
+<!-- 심판철회관리 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cam">
+        <h2 class="topTit">심판철회관리</h2>
+        <div class="explain">
+            * 심판철회 이력을 관리하기 위한 메뉴입니다. 배정 취소는 대회배정관리에서 진행해 주세요.
+        </div>
+        <div class="table-top flex f-sb">
+            <span class="count">전체 <em>(255)</em></span>
+            <div class="right-search flex mb-13">
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
+                <button class="btn btn-gray mr-24">검색</button>
+                <button class="btn btn-blue" onclick="openModal('withdrawalModal')">심판철회 등록</button>
+            </div>
+        </div>
+        <div style="min-height: 529px;">
+            <table class="table table-line">
+                <colgroup>
+                    <col style="width: 55%;">
+                    <col style="width: 7%;">
+                    <col style="width: 12.5%;">
+                    <col style="width: 7%;">
+                    <col style="width: 7%;">
+                    <col style="width: auto;">
+                </colgroup>
+                <thead>
+                        <tr>
+                            <th class="text-left">대회명</th>
+                            <th>대회종류</th>
+                            <th class="text-left">신청기간</th>
+                            <th class="text-left">개최지역</th>
+                            <th class="text-left">철회심판</th>
+                            <th class="text-left">수정</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < 5; i++){ %>
+                    <tr>
+                        <td>
+                            <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                        <td class="text-center">국내대회</td>
+                        <td>2024.10.19~2024.10.27</td>
+                        <td>원주</td>
+                        <td>홍길동</td>
+                        <td class="">
+                            <button class="btn btn-blue-border" onclick="openModal('withdrawalModal')">수정하기</button>
+                        </td>
+                    </tr>
+                    <% } %>
+    
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+
+    <!-- 심판 철회 모달 -->
+    <div class="common-modal" id="withdrawalModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">심판철회</span>
+                <button class="closeBtn" onclick="closeModal('withdrawalModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <table class="table horizon">
+                    <colgroup>
+                        <col style="width: 140px;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>대회</th>
+                            <td>
+                                <div class="flex">
+                                    <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="조회 버튼을 클릭해주세요" disabled />
+                                    <button class="btn btn-gray" onclick="openModal('competitionModal')">조회</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>심판</th>
+                            <td>
+                                <div class="flex">
+                                    <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="조회 버튼을 클릭해주세요" disabled />
+                                    <button class="btn btn-gray" onclick="openModal('refereeModal')">조회</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>심판철회 사유</th>
+                            <td>
+                                <div class="textBox">
+                                    <div class="textBox-wrap">
+                                        <textarea name="textarea" placeholder="내용을 입력하세요." maxlength="1000"></textarea>
+                                    </div>
+                                    <div class="textBox-limit mt-8"><span></span>&nbsp;/ 1000</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('withdrawalModal')">닫기</button>
+                <button class="btn btn-blue">등록</button>
+                <!-- <button class="btn btn-red">삭제</button> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 대회 조회 모달 -->
+    <div class="common-modal" id="competitionModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">대회 조회</span>
+                <button class="closeBtn" onclick="closeModal('competitionModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <div class="flex f-ct mb-20">
+                    <input name="input" class="inputBox inputBox-default mr-4 w-320" type="text" placeholder="이름을 입력하세요." />
+                    <button class="btn btn-gray">검색</button>
+                </div>
+                <div class="content-item">
+                    <table class="table table-line">
+                        <colgroup>
+                            <col style="width: auto">
+                            <col style="width: 13.3%">
+                            <col style="width: 30%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>대회명</th>
+                                <th>대회종류</th>
+                                <th>대회기간</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < 6; i++){ %>
+                            <tr>
+                                <td>
+                                    <div class="radioBox">
+                                        <input type="checkbox" name="competition" id="competition<%= i %>" />
+                                        <label for="competition<%= i %>">2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</label>
+                                    </div>
+                                </td>
+                                <td>국내대회</td>
+                                <td>2024.10.19 ~ 2024.10.27</td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('competitionModal')">닫기</button>
+                <button class="btn btn-blue">등록</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 대회 심판 모달 -->
+    <div class="common-modal" id="refereeModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">심판 조회</span>
+                <button class="closeBtn" onclick="closeModal('refereeModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <div class="flex f-ct mb-20">
+                    <input name="input" class="inputBox inputBox-default mr-4 w-320" type="text" placeholder="이름을 입력하세요." />
+                    <button class="btn btn-gray">검색</button>
+                </div>
+                <div class="content-item">
+                    <table class="table table-line">
+                        <colgroup>
+                            <col style="width: auto">
+                            <col style="width: 13%">
+                            <col style="width: 17%">
+                            <col style="width: 20%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>생년월일</th>
+                                <th>전화번호</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < 6; i++){ %>
+                            <tr>
+                                <td>
+                                    <div class="radioBox">
+                                        <input type="checkbox" name="referee" id="referee<%= i %>" />
+                                        <label for="referee<%= i %>">abcde1234</label>
+                                    </div>
+                                </td>
+                                <td>가나다라</td>
+                                <td>2024.10.19</td>
+                                <td>010-1234-5678</td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('refereeModal')">닫기</button>
+                <button class="btn btn-blue">등록</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/footer',{ path :'referee-withdrawal-management'}) %>

@@ -38,8 +38,8 @@
         row-gap: 7px;
     }
     .wrap{
-        flex-wrap: wrap;
         row-gap: 8px;
+        flex-direction: column;
     }
     .supplyTarget{
         .supplyTargetSl{
@@ -50,27 +50,30 @@
             // width: max-content;
             position: relative;
             padding-right: 28px;
-            width: 385px;
         }
         .inputBox{
             width: 80px;
         }
         .txt{
             @include font-style(14,500);
+
+            &-title {
+                width: 166px;
+                @include font-style(16,500);
+            }
         }
         
     }
     .removeOp{
         display: inline-block;
-        position: absolute;
-        right: 0;
+        position: relative;
         top: 50%;
-        transform: translateY(-50%);
         width: 20px;
         height: 20px;
         border-radius: 50%;
         background: url('../../assets/images/ic-close.png')no-repeat center #f0f2f5;
         background-size: 10px;
+        margin-left: 8px;
     }
     .addBtn{
         border-radius: 2px;

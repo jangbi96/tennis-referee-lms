@@ -191,8 +191,7 @@
                                 <col style="width: auto">
                                 <col style="width: 13.3%">
                                 <col style="width: 15.5%">
-                                <col style="width: 20%">
-                                <col style="width: 24%">
+                                <col style="width: 44%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -200,7 +199,6 @@
                                     <th>이름</th>
                                     <th>생년월일</th>
                                     <th>파일</th>
-                                    <th>부서선택</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -219,20 +217,6 @@
                                             파일 다운로드
                                         </button>
                                     </td>
-                                    <td>
-                                        <div class="selectBox tab1Buseo tab1Buseo<%= i %>">
-                                            <select name="tab1Buseo<%= i %>">
-                                                <option value="" selected disabled readonly>부서선택</option>
-                                                <option value="1">일</option>
-                                                <option value="2">이</option>
-                                                <option value="3">삼</option>
-                                            </select>
-                                            <div class="customSelect">
-                                                <div class="customSelect-view"></div>
-                                                <ul class="customSelect-options mt-5"></ul>
-                                            </div>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <% } %>
                             </tbody>
@@ -244,8 +228,7 @@
                                 <col style="width: auto">
                                 <col style="width: 13.3%">
                                 <col style="width: 15.5%">
-                                <col style="width: 20%">
-                                <col style="width: 24%">
+                                <col style="width: 44%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -253,7 +236,6 @@
                                     <th>이름</th>
                                     <th>생년월일</th>
                                     <th>파일</th>
-                                    <th>부서선택</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -272,20 +254,6 @@
                                             파일 다운로드
                                         </button>
                                     </td>
-                                    <td>
-                                        <div class="selectBox tab2Buseo tab2Buseo<%= i %>">
-                                            <select name="tab2Buseo<%= i %>">
-                                                <option value="" selected disabled readonly>부서선택</option>
-                                                <option value="1">일</option>
-                                                <option value="2">이</option>
-                                                <option value="3">삼</option>
-                                            </select>
-                                            <div class="customSelect">
-                                                <div class="customSelect-view"></div>
-                                                <ul class="customSelect-options mt-5"></ul>
-                                            </div>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <% } %>
                             </tbody>
@@ -297,8 +265,7 @@
                                 <col style="width: auto">
                                 <col style="width: 13.3%">
                                 <col style="width: 15.5%">
-                                <col style="width: 20%">
-                                <col style="width: 24%">
+                                <col style="width: 44%">
                             </colgroup>
                             <thead>
                                 <tr>
@@ -306,7 +273,6 @@
                                     <th>이름</th>
                                     <th>생년월일</th>
                                     <th>파일</th>
-                                    <th>부서선택</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -325,20 +291,6 @@
                                             파일 다운로드
                                         </button>
                                     </td>
-                                    <td>
-                                        <div class="selectBox tab3Buseo tab3Buseo<%= i %>">
-                                            <select name="tab3Buseo<%= i %>">
-                                                <option value="" selected disabled readonly>부서선택</option>
-                                                <option value="1">일</option>
-                                                <option value="2">이</option>
-                                                <option value="3">삼</option>
-                                            </select>
-                                            <div class="customSelect">
-                                                <div class="customSelect-view"></div>
-                                                <ul class="customSelect-options mt-5"></ul>
-                                            </div>
-                                        </div>
-                                    </td>
                                 </tr>
                                 <% } %>
                             </tbody>
@@ -349,9 +301,81 @@
             <div class="mContents-foot f-sb">
                 <button class="btn btn-gray" onclick="closeModal('assignModal')">닫기</button>
                 <div>
+                    <button class="btn btn-blue-border mr-4" onclick="openModal('addModal')">심판추가</button>
                     <button class="btn btn-blue-border mr-4">임시저장</button>
                     <button class="btn btn-blue">배정</button>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="common-modal" id="addModal">
+        <div class="mContents" onclick="(e)=> e.stopPropagation()">
+            <div class="mContents-head f-sb">
+                <span class="tit">심판추가</span>
+                <button class="closeBtn" onclick="closeModal('addModal')"></button>
+            </div>
+            <div class="mContents-body">
+                <div class="flex f-ct mb-20">
+                    <input name="input" class="inputBox inputBox-default mr-4 w-320" type="text" placeholder="이름을 입력하세요." />
+                    <button class="btn btn-gray">검색</button>
+                </div>
+                <div class="content-item">
+                    <table class="table">
+                        <colgroup>
+                            <col style="width: auto">
+                            <col style="width: 13.3%">
+                            <col style="width: 15.5%">
+                            <col style="width: 20%">
+                            <col style="width: 24%">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>아이디</th>
+                                <th>이름</th>
+                                <th>생년월일</th>
+                                <th>전화번호</th>
+                                <th>추가 대상</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(var i = 0; i < 6; i++){ %>
+                            <tr>
+                                <td>
+                                    <div class="checkBox checkBox-sq">
+                                        <input type="checkbox" name="tab1Id" id="tab1Id<%= i %>" />
+                                        <label for="tab1Id<%= i %>">abcde1234</label>
+                                    </div>
+                                </td>
+                                <td>가나다라</td>
+                                <td>2024.10.19</td>
+                                <td>
+                                    010-1111-2222
+                                </td>
+                                <td>
+                                    <div class="selectBox tab1Buseo tab1Buseo<%= i %>">
+                                        <select name="tab1Buseo<%= i %>">
+                                            <option value="" selected disabled readonly>선택</option>
+                                            <option value="1">슈퍼바이저/레프리</option>
+                                            <option value="2">치프 언파이어</option>
+                                            <option value="3">체어 언파이어</option>
+                                            <option value="4">오프코트 언파이어</option>
+                                            <option value="5">라인 언파이어</option>
+                                        </select>
+                                        <div class="customSelect">
+                                            <div class="customSelect-view"></div>
+                                            <ul class="customSelect-options mt-5"></ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mContents-foot f-sb">
+                <button class="btn btn-gray" onclick="closeModal('addModal')">닫기</button>
+                <button class="btn btn-blue mr-4">심판추가</button>
             </div>
         </div>
     </div>

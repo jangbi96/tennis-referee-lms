@@ -93,8 +93,7 @@ $('.addTarget').on('click',(e)=>{
     new Dropdown(document.querySelector(`.supplyTargetSl${targetSltCnt}`));
 
     $(`.supplyTargetSl${targetSltCnt}`).siblings('.removeLine').on('click',(e)=>{
-        if($('.supplyTargetSl').length === 1) return;
-        $(e.target).parent().remove();
+        $(e.target).parent().find(".inputBox").val("");
 
         deleteSupplyTargetOp();
       
@@ -105,9 +104,8 @@ $('.addTarget').on('click',(e)=>{
 
 
 $('.removeLine').on('click',function(){
-    if($('.supplyTargetSl').length === 1) return;
 
-    $(this).parent().remove();
+    $(this).parent().find(".inputBox").val("");
 
     deleteSupplyTargetOp();
 })

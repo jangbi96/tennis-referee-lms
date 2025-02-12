@@ -1,0 +1,52 @@
+<%- include('../includes/header',{ path :'referee-report'}) %>
+<!-- 레프리 보고서 -->
+<div class="mainContainer flex">
+<%- include('../includes/navbar') %>
+    <section class="mainSection cam">
+        <h2 class="topTit">레프리 보고서</h2>
+        <div class="table-top flex f-sb">
+            <span class="count">전체 <em>(255)</em></span>
+            <div class="right-search flex mb-13">
+                <input name="input" class="inputBox inputBox-default mr-4" type="text" placeholder="내용을 입력하세요." />
+                <button class="btn btn-gray mr-24">검색</button>
+            </div>
+        </div>
+        <div style="min-height: 529px;">
+            <table class="table table-line">
+                <colgroup>
+                    <col style="width: 65%;">
+                    <col style="width: 15%;">
+                    <col style="width: 9%;">
+                    <col style="width: auto;">
+                </colgroup>
+                <thead>
+                        <tr>
+                            <th class="text-left">개최지역</th>
+                            <th class="text-left">대회기간</th>
+                            <th class="text-left">개최지역</th>
+                            <th class="text-left">보고서</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < 5; i++){ %>
+                    <tr>
+                        <td>
+                            <p>주니어 테니스투어대회2024년도 ITF 하나증권 완주 국제 주니어 테니스투어대회</p></td>
+                        <td>2024.10.19~2024.10.27</td>
+                        <td>원주</td>
+                        <td class="">
+                            <a href="" download="" class="btn btn-blue-border">다운로드</a>
+                        </td>
+                    </tr>
+                    <% } %>
+    
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 리스트 없으면 disabled 속성 추가-->
+        <button class="more-btn mt-25">더보기<i></i></button>
+    </section>
+</div>
+
+<%- include('../includes/footer',{ path :'referee-report'}) %>
